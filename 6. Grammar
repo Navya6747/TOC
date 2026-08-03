@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int i=0,j,len;
+
+    printf("Enter string: ");
+    scanf("%s",str);
+
+    len=strlen(str);
+    j=len-1;
+
+    while(i<len && str[i]=='0')
+        i++;
+
+    while(j>=0 && str[j]=='0')
+        j--;
+
+    if(i==(len-1-j))
+    {
+        int k;
+        int flag=1;
+        for(k=i;k<=j;k++)
+        {
+            if(str[k]!='1')
+            {
+                flag=0;
+                break;
+            }
+        }
+
+        if(flag)
+            printf("Accepted");
+        else
+            printf("Rejected");
+    }
+    else
+        printf("Rejected");
+
+    return 0;
+}
